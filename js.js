@@ -3,8 +3,8 @@ var color = 'red';
 var colorPalette = ["red", "orange", "yellow", "green", "blue", "purple"]
 document.addEventListener('dblclick', (event) => {
     for(var i = 0; i < 5; i++) {
-        if(color = colorPallete[i]) {
-            color = colorPallete[i+1];
+        if(color = colorPalette[i]) {
+            color = colorPalette[i+1];
         }
     }
 });
@@ -41,5 +41,5 @@ function changePalette() {
 
 function changeColor(event) {
     let cell = event.target;
-    cell.style.background = "red";
+    cell.style.background = color;
 }
