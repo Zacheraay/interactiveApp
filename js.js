@@ -1,4 +1,3 @@
-
 document.addEventListener("keypress", (event) => {
       if (event.key == "r"){
     createGrid();
@@ -8,9 +7,9 @@ document.addEventListener("keypress", (event) => {
 
 
 var click;
-var count = 0;
-var color = 'red';
-var colorPalette = ["red", "orange", "yellow", "green", "blue", "purple"]
+
+var colorPalette = ["red", "orange", "yellow", "green", "blue", "purple"];
+var color = colorPalette[0];
 
 
 function createGrid() {
@@ -29,6 +28,7 @@ function createGrid() {
             box.style.left = i*16+"px";
             box.style.top = j*16+"px";
             box.addEventListener('mouseover', (event) => {
+                console.log(color);
                 if(click){
                     changeColor(event);
                 }
@@ -43,13 +43,17 @@ function createGrid() {
 
 function changePalette() {
     document.addEventListener('dblclick', (event) => {
-        for(var i = 4; i >= 0; i--) {
-            if(color = colorPalette[i]) {
-                color = colorPalette[i+1];
-            } else {
-                color = colorPalette[0];
+        if(color == colorPalette[5]) {
+            color = colorPalette[0];
+        } else {
+            for(var i = 5; i >= 0; i--) {
+                if(color == colorPalette[i] && i < 5) {
+                    color = colorPalette[i+1];
+                    console.log(i);
+                }
             }
         }
+
     });
 }
 
@@ -57,8 +61,3 @@ function changeColor(event) {
     let cell = event.target;
     cell.style.background = color;
 }
-
-
-
-
-
