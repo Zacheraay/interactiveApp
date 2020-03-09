@@ -1,3 +1,12 @@
+
+document.addEventListener("keypress", (event) => {
+      if (event.key == "r"){
+    createGrid();
+}
+});
+
+
+
 var click;
 var count = 0;
 var color = 'red';
@@ -48,3 +57,8 @@ function changeColor(event) {
     let cell = event.target;
     cell.style.background = color;
 }
+
+
+
+
+
