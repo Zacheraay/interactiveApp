@@ -1,13 +1,8 @@
 var click;
+var count = 0;
 var color = 'red';
 var colorPalette = ["red", "orange", "yellow", "green", "blue", "purple"]
-document.addEventListener('dblclick', (event) => {
-    for(var i = 0; i < 5; i++) {
-        if(color = colorPalette[i]) {
-            color = colorPalette[i+1];
-        }
-    }
-});
+
 
 function createGrid() {
     var grid = document.getElementById("grid");
@@ -28,15 +23,25 @@ function createGrid() {
                 if(click){
                     changeColor(event);
                 }
+
             });
             grid.appendChild(box);
         }
     }
+    changePalette();
 }
 
 
 function changePalette() {
-
+    document.addEventListener('dblclick', (event) => {
+        for(var i = 4; i >= 0; i--) {
+            if(color = colorPalette[i]) {
+                color = colorPalette[i+1];
+            } else {
+                color = colorPalette[0];
+            }
+        }
+    });
 }
 
 function changeColor(event) {
