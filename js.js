@@ -1,3 +1,7 @@
+window.onload = function() {
+    createGrid();
+};
+
 document.addEventListener("keypress", (event) => {
       if (event.key == "r"){
     createGrid();
@@ -28,7 +32,6 @@ function createGrid() {
             box.style.left = i*16+"px";
             box.style.top = j*16+"px";
             box.addEventListener('mouseover', (event) => {
-                console.log(color);
                 if(click){
                     changeColor(event);
                 }
@@ -49,7 +52,6 @@ function changePalette() {
             for(var i = 5; i >= 0; i--) {
                 if(color == colorPalette[i] && i < 5) {
                     color = colorPalette[i+1];
-                    console.log(i);
                 }
             }
         }
