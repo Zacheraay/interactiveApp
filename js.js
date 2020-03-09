@@ -1,6 +1,11 @@
+grid.addEventListener("keypress", reset);
+let body = document.body
+
+
+
+
 function createGrid() {
     var grid = document.getElementById("grid");
-
     for(var i = 0; i < 50; i++) {
         for(var j = 0; j < 50; j++) {
             var box = document.createElement("box");
@@ -9,13 +14,26 @@ function createGrid() {
             box.style.top = j*16+"px";
             box.addEventListener('mouseover', (event) => {
                 changeColor(event);
+
             })
+
             grid.appendChild(box);
         }
     }
 }
 
+
+
+
+
 function changeColor(event) {
     let cell = event.target;
     cell.style.background = "red";
+}
+
+
+
+function reset(event) {
+    if (event.key === "r"){
+    createGrid();
 }
